@@ -1,0 +1,28 @@
+#%RAML 1.0
+title: calculator
+version: v1
+protocols:
+  - HTTPS
+traits:
+  res: !include exchange_modules/02e5b027-72aa-4157-b40f-3989798bbdde/reuse1/1.0.0/reuse1.raml
+/addition:
+  get:
+    is:
+      - res
+    queryParameters:
+      number1:
+        type: integer
+        required: true
+        example:
+      number2:
+        type: integer
+        required: true
+        example:
+    responses:
+      200:
+        body:
+            application/json:
+                example:
+                    {"Message" :"result is 40"} 
+
+     
